@@ -7,6 +7,12 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
 
   <style>
     * {
@@ -22,10 +28,11 @@
       background-color: #f8f9fa;
       color: #333;
     }
+    
 
     /* Sidebar */
     .sidebar {
-      width: 360px;
+      width: 280px;
       background: linear-gradient(160deg, #2c3e50, #34495e);
       color: white;
       padding: 40px 20px;
@@ -46,10 +53,11 @@
       margin-bottom: 30px;
       border: 4px solid white;
       box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transform: scale(1.25);
       transition: transform 0.3s;
     }
     .profile-img:hover {
-      transform: scale(1.05);
+      transform: scale(1.3);
     }
 
     .name {
@@ -88,31 +96,82 @@
     /* Content */
     .content {
       flex: 1;
-      margin-left: 360px;
-      padding: 50px;
+      margin-left: 280px;
+      padding: 0 140px 20px 80px;
       background-color: #fff;
       line-height: 1.7;
+      text-align: justify; 
+      font-size: 14px; 
+    }
+    
+    .background-banner {
+      width: 100%;
+      height: 200px;
+      background-image: url('background.jpg');
+      background-size: 100% auto;      
+      background-position: center; 
+      background-repeat: no-repeat;
+      border-radius: 8px;       
+      margin-bottom: 20px;
+      margin-top: 60px; 
+      
+      position: relative; 
+      display: flex; 
+      justify-content: center;      
+      align-items: center;  
+    }
+    
+    .banner-text {
+      position: absolute;
+      top: 0;
+      left: 20px;
+      color: white;          /* ?????????? */
+      font-size: 32px;
+      font-weight: normal;
+      font-family: 'Lobster', cursive;
+     
+      text-shadow: 
+        2px 2px 4px #FF4500,  /* ????? */
+        4px 4px 6px rgba(255,69,0,0.5); /* ????????????? */
     }
 
     /* Navigation */
     .navbar {
       display: flex;
-      margin-bottom: 40px;
-      border-bottom: 2px solid #eee;
+      margin-bottom: 10px;
+      padding: 0px 0px;  
+      overflow: hidden; 
+      position: fixed;
+      background-color: #ffffff;    
+      width: calc(100% - 360px);  
+    }
+    
+    .navbar::after {
+      content: "";
+      position: absolute;
+      bottom: 0;               /* ??????? */
+      left: 1%;               /* ???? */
+      transform: translateX(-50%);
+      width: 120%;              /* ????,?? */
+      height: 2px;             /* ???? */
+      background-color: #ccc;  /* ?? */
+      border-radius: 1px;
     }
 
     .nav-link {
-      padding: 12px 22px;
+      padding: 6px 22px;
       cursor: pointer;
       margin-right: 8px;
       border-bottom: 3px solid transparent;
       transition: all 0.3s;
-      font-weight: 500;
+      color: linear-gradient(160deg, #2c3e50, #34495e);
+      font-weight: 700;
+      font-size: 18px;
     }
 
     .nav-link:hover, .nav-link.active {
-      border-bottom: 3px solid #2c3e50;
-      color: #2c3e50;
+      background-color: #2c3e50;
+      color: white;
       font-weight: 600;
     }
 
@@ -132,22 +191,199 @@
       color: #2c3e50;
       font-weight: 700;
     }
+    
+    .top-images {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 0;
+      margin-up: 20px;
+    }
+
+    .top-images figure {
+      margin: 0;
+      text-align: center;
+    }
+
+    .top-images img {
+      height: 260px;
+      width: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+
+    .top-images figcaption {
+      margin-top: 5px;
+      font-size: 14px;
+      color: #777;
+    }
+    
+    .fun-text {
+      text-align: right;
+      font-family: 'Lobster', cursive;
+      font-size: 16px;
+      font-weight: 600;
+      margin-top: 0;
+      color: #228B22;  /* ????????? */
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2); /* ???? */
+    }
+
+    .education-item, .work-item {
+      margin-bottom: 20px;
+      padding: 15px 20px; 
+      background-color: rgba(245, 245, 245, 0.8);
+      border-radius: 10px; 
+    }
+
+    .date {
+      font-weight: bold;
+      color: #2c3e50;
+    }
+
+    .degree, .position {
+      margin: 5px 0;
+    }
+
+    .institution, .company {
+      font-style: italic;
+    }
+
+    .advisors {
+      margin-top: 5px;
+    }
+    
+    
+    #research .research-topic:first-of-type {
+      margin-top: 60px;
+      margin-bottom: 30px; 
+    }
+    
+   
+    #research ol {
+      margin-left: 20px;        
+      padding-left: 20px;      
+      text-align: justify;      
+    }
+
+    #research li {
+      margin-bottom: 8px;     
+      line-height: 1.5;        
+      text-indent: 0;      
+    }
+
+    #research li strong {
+      color: #2c3e50;          
+    }
+    
+   
+    .float-img {
+      float: left; 
+      width: 440px;        /* ??????,??????? */
+      margin: 0px 20px 20px 0;
+      height: auto;
+    }
+    
+    .float-img-BS {
+      float: left; 
+      width: 440px;        /* ??????,??????? */
+      margin: 0px 20px 20px 0;
+      height: auto;
+    }
+    
+    .float-img-tree {
+      float: left; 
+      width: 200px;        /* ??????,??????? */
+      margin: 0px 20px 20px 0;
+      height: auto;
+    }
+
+    .research-figure-wrap ul {
+      flex: 1;
+      text-align: justify;
+      line-height: 1.6;
+      margin: 20px 0 0 0;
+      padding-top: 20px;
+    }
+    
+    .research-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-up: 60px;
+      margin-bottom: 15px;
+      color: #2f4f4f;  /* ???? */
+    }
+    
+    .research-title i {
+      color: #6b8fa3;   /* ???? */
+      margin-right: 8px;    /* ??????? */
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.15);
+    }
+    
+    .publication-caption {
+      clear: both;  
+      color: #444;
+      margin-top: 15px;
+      margin-bottom: 30px;
+      text-align: center;
+      line-height: 1.5;
+      text-align: justify;
+    }
+
+    .publication-caption a {
+      color: #2a6496;
+      text-decoration: none;
+    }
+
+    .publication-caption a:hover {
+      text-decoration: underline;
+    }
 
     .cv-link {
       display: inline-block;
-      margin-top: 25px;
-      padding: 12px 24px;
-      background-color: #2c3e50;
+      margin-top:0;
+      margin-bottom: 15px;    
+      padding: 6px 24px;
+      background-color: #4a5a6a;
       color: white;
       text-decoration: none;
       border-radius: 6px;
       transition: background 0.3s, transform 0.3s;
       font-weight: 600;
     }
+    
     .cv-link:hover {
       background-color: #1a252f;
       transform: translateY(-2px);
     }
+    
+    .progress-title {
+        margin-top: 60px; /* 
+    }
+
+    .publications {
+        margin: 0;   /* ???? */
+        padding: 0;     /* ???????? */
+        margin-left: 0;
+    }
+    
+    #publications ol {
+        padding-left: 1.2em;   /* ???????? */
+        margin-left: 0;        /* ?????? */
+    }
+
+    .publications li {
+        margin-bottom: 10px;
+        text-indent: -20px;  /* ?????? */
+        padding-left: 20px;  /* ????? */
+        line-height: 1.5;
+    }
+      
+    .publication-status {
+      color: #c0392b;
+      font-weight: 600;
+    }
+    
 
     /* Responsive */
     @media (max-width: 768px) {
@@ -184,13 +420,19 @@
     <div>
       <div class="name">Minhui Li</div>
       <div class="email">
-        minhui0603@gmail.com<br>
-        minhui.li@yale.edu
+        <i class="fa-solid fa-envelope" aria-hidden="true" style="margin-right:6px;"></i>minhui0603@gmail.com<br>
+        <i class="fa-solid fa-envelope" aria-hidden="true" style="margin-right:6px;"></i>minhui.li@yale.edu
       </div>
       <div class="social-links">
-        <a href="https://scholar.google.com/citations?user=qJLu9TAAAAAJ&hl=en" class="social-link" target="_blank">Google Scholar</a>
-        <a href="https://www.researchgate.net/profile/Minhui-Li-4" class="social-link" target="_blank">ResearchGate</a>
-        <a href="http://linkedin.com/in/minhui-li-7ba2bb265" class="social-link" target="_blank">LinkedIn</a>
+        <a href="https://scholar.google.com/citations?user=qJLu9TAAAAAJ&hl=en" class="social-link" target="_blank">
+            <i class="fa-brands fa-google"></i> Google Scholar
+        </a>
+        <a href="https://www.researchgate.net/profile/Minhui-Li-4" class="social-link" target="_blank">
+            <i class="fa-brands fa-researchgate"></i> ResearchGate
+        </a>
+        <a href="http://linkedin.com/in/minhui-li-7ba2bb265" class="social-link" target="_blank">
+            <i class="fa-brands fa-linkedin"></i> LinkedIn
+        </a>
       </div>
     </div>
   </div>
@@ -204,27 +446,173 @@
       <div class="nav-link" data-section="research">Research</div>
       <div class="nav-link" data-section="publications">Publications</div>
     </div>
-
+    
     <!-- Sections -->
     <div id="home" class="section active">
-      <h2 class="section-title">Home</h2>
-      <p>My research broadly explores river networks within the fields of geomorphology, hydrology, and biogeochemistry across regional to global scales...</p>
+      <div class="background-banner">
+      <div class="banner-text">Welcome to Minhui's website</div>
+    </div>
+
+      <p>Hi, I'm Minhui, a postdoctoral associate at the Yale School of the Environment. I study how rivers interact with landscapes and climate, focusing on stream network geometry, topology, and hydrological connectivity. My research combines extensive GIS analyses, data-driven methods, physics-based theory and large-sample datasets to quantify the interrelationships between climate, landscape, river network structures and catchment responses. I work across regional, continental, and global scales, aiming to reveal broad spatial patterns and the underlying processes that shape them.</p>
     </div>
 
     <div id="about" class="section">
-      <h2 class="section-title">About me</h2>
-      <p>Education and work experience...</p>
-      <a href="cv.pdf" class="cv-link">Download CV</a>
+      <div class="top-images">
+        <figure>
+          <img src="1.jpg" alt="Tibetan Plateau">
+          <figcaption>Tibetan Plateau, China</figcaption>
+        </figure>
+        
+        <figure>
+          <img src="2.jpg" alt="Aletsch Glacier">
+          <figcaption>Aletsch Glacier, Switzerland</figcaption>
+        </figure>
+        
+        <figure>
+          <img src="3.jpg" alt="Saxerl&uuml;cke">
+          <figcaption>Saxerl&uuml;cke, Switzerland</figcaption>
+        </figure>
+      </div>
+      
+      <p class="fun-text">Have fun exploring NATURE!</p>
+      
+      <a href="cv.pdf" class="cv-link">
+        <i class="fas fa-download" style="margin-right: 8px; font-size: 16px;"></i>
+        CV (Last updated: August, 2025)
+      </a>
+      
+      <h3><i class="fa-solid fa-graduation-cap" style="margin-right:6px; color:#87CEFA;"></i>Education:</h3>
+      <div class="education-item">
+        <div class="date">Sep. 2018 - Jun. 2024</div>
+        <div class="degree">PhD, Department of Hydraulic Engineering, Tsinghua University, China</div>
+        <div class="advisors">Advisors: Xudong Fu, Baosheng Wu, James Kirchner</div>
+      </div>
+
+      <div class="education-item">
+        <div class="date">Sep. 2014 - Jun. 2018</div>
+        <div class="degree">BSc, Dayu College, Hohai University, China</div>
+      </div>
+
+      <div class="education-item">
+        <div class="date">Dec. 2021 - Nov. 2023</div>
+        <div class="degree">Visiting PhD student, Department of Environmental Systems Sciences, ETH Zurich, Switzerland</div>
+        <div class="advisors">Advisors: James Kirchner, Hansj&ouml;rg Seybold</div>
+      </div>
+
+      <h3><i class="fa-solid fa-building" style="margin-right:6px; color:#1E3A8A;"></i>Working Experiences:</h3>
+
+      <div class="work-item">
+        <div class="date">Jan. 2025 - present</div>
+        <div class="position">Postdoc associate, School of the Environment, Yale University, United States</div>
+        <div class="advisors">Advisor: Peter Raymond</div>
+      </div>
+
+      <div class="work-item">
+        <div class="date">Aug. 2024 - Dec. 2024</div>
+        <div class="position">Postdoc, Department of Environmental Systems Sciences, ETH Zurich, Switzerland</div>
+        <div class="advisors">Advisor: James Kirchner</div>
+      </div>
+
+      <div class="work-item">
+        <div class="date">Dec. 2023 - Jul. 2024</div>
+        <div class="position">Scientific assistant, Department of Environmental Systems Sciences, ETH Zurich, Switzerland</div>
+        <div class="advisors">Advisors: James Kirchner</div>
+      </div>
     </div>
 
     <div id="research" class="section">
-      <h2 class="section-title">Research</h2>
-      <p>Research topics...</p>
-    </div>
-
+      <div class="research-topic">
+        My research broadly focuses on geomorphology, hydrology, and biogeochemistry, with three main areas of interest:
+        <ol>
+          <li><strong>Hydrological controls on stream network expansion and contraction</strong>, and their implications for riverine carbon dynamics.</li>
+          <li><strong>Continental- to global-scale morphological analysis</strong> of stream networks and watersheds.</li>
+          <li><strong>Dynamic connectivity between landscapes and stream networks</strong>, and its influence on hydrologic responses across different climates.</li>
+        </ol>
+      
+      </div>
+      
+      <h2 class="research-title"><i class="fa-solid fa-book-open"></i> STREAM NETWORK BRANCHING GEOMETRY</h2>
+      
+      <div class="research-figure-wrap">
+        <img src="TP.jpg" alt="Tibetan Plateau" class="float-img">
+        <ul>
+          <li>Branching angles of major stream networks on the eastern Tibetan Plateau vary systematically with climatic aridity and channel slopes.</li>
+          <li>Climatic controls dominate over tectonic drivers in shaping the branching angles in the flat interior of the eastern Tibetan Plateau.</li>
+          <li>Tectonic controls dominate over climate in shaping the branching angles in the steep margin of the eastern Tibetan Plateau.</li>
+        </ul>
+      </div>
+      
+      <div class="publication-caption">
+        <strong>Related publication:</strong><br>
+        Li, M., Seybold, H., Wu, B., Chen, Y., & Kirchner, J.W. (2023). Interaction between tectonics and climate encoded in the planform geometry of stream networks on the eastern Tibetan Plateau. <i>Geophysical Research Letters</i>, 50(14), e2023GL104121. 
+        <a href="https://doi.org/10.1029/2023GL104121" target="_blank">DOI</a>
+      </div>
+      
+      <h2 class="research-title"><i class="fa-solid fa-book-open"></i> DRAINAGE BASIN SHAPES</h2>
+      
+      <div class="research-figure-wrap">
+        <img src="BS.jpg" alt="basin" class="float-img-BS">
+        <ul>
+          <li>Globally, basins with greater topographic roughness tend to be wider, and those with steeper whole-basin slopes tend to be narrower.</li>
+          <li>In arid regions (aridity index <0.65), basins tend to widen as climate becomes more humid.</li>
+          <li>Basin shape is strongly correlated with topographic roughness, whole-basin slope and climatic aridity on a global scale.</li>
+        </ul>
+      </div>
+      
+      <div class="publication-caption">
+        <strong>Related publication:</strong><br>
+        Li, M., Seybold, H., Wu, B., Chen, Y., & Kirchner, J.W. (2024). Global analysis of topographic and climatic controls on drainage basin shapes. <i>Geophysical Research Letters</i>, 51(8), e2023GL105804. 
+        <a href="https://doi.org/10.1029/2023GL105804" target="_blank">DOI</a>
+      </div>
+      
+      <h2 class="research-title"><i class="fa-solid fa-book-open"></i> STREAM NETWORK CLASSIFICATION</h2>
+      <div class="research-figure-wrap">
+        <img src="tree.jpg" alt="tree" class="float-img-tree">
+        <ul>
+          <li>The development of river networks is closely related to landscape evolution and terrain characteristics.</li>
+          <li>A classification method based on the hierarchical structure of river networks improves accuracy by capturing drainage texture, flow direction, and aspect ratios.</li>
+          <li>The proposed method outperforms previous methods, achieving cross-validation accuracies up to 82%, demonstrating the importance of hierarchical structures in river network classification.</li>
+        </ul>
+      </div>
+      
+      <div class="publication-caption">
+        <strong>Related publication:</strong><br>
+        Li, M., Wu, B., Chen, Y., & Li, D. (2022). Quantification of river network types based on hierarchical structures. <i>CATENA</i>, 211, 105986.
+        <a href="https://doi.org/10.1016/j.catena.2021.105986" target="_blank">DOI</a>
+      </div>
+      
+      <h2 class="research-title"><i class="fa-solid fa-book-open"></i> STREAM NETWORK TOPOLOGY</h2>
+      <strong>UPDATING SOON</strong><br><br>
+      
+      <h2 class="research-title"><i class="fa-solid fa-book-open"></i> CLIMATE AND LANDSCAPE CONTROLS ON RAINFALL-RUNOFF RESPONSE</h2>
+      <strong>UPDATING SOON</strong><br><br>
+      
+      <h2 class="research-title"><i class="fa-solid fa-book-open"></i> HILLSLOPE-CHANNEL NETWROK CONNECTIVETY</h2>
+      <strong>UPDATING SOON</strong><br><br>
+      
+    </div> 
+    
+      
     <div id="publications" class="section">
-      <h2 class="section-title">Publications</h2>
-      <p>Publication list...</p>
+      <h3 class="progress-title">
+        <i class="fa-solid fa-hourglass-half" style="margin-right:6px;color:#FF8C00;text-shadow: 2px 2px 4px rgba(255, 255, 0, 0.6);"></i>
+          Papers in progress:
+      </h3>
+      <ol class="publications">
+        <li><strong>Li, M.</strong>, Seybold, H., Fu, X., Wu, B., Raymond, P., & Kirchner, J.W. (2025). Climatic controls on stream network topology. <span class= "publication-status">(Under Review)</span>
+        <li><strong>Li, M.</strong>, Seybold, H., Beria, H., Floriancic, M., Fu, X., Raymond, P., & Kirchner, J.W. (2025). Climatic and topographic controls on runoff response. <span class="publication-status">(Submitted)</span>
+      </ol>
+      
+      <h3><i class="fa-solid fa-award" style="margin-right:6px;color:#FF0000; text-shadow: 2px 2px 4px rgba(255, 165, 0, 0.7);"></i>Peer-reviewed:</h3>
+
+      <ol class="publications">
+        <li><strong>Li, M.</strong>, Seybold, H., Wu, B., Chen, Y., Fu, X., & Kirchner, J.W. (2024). Global analysis of topographic and climatic controls on drainage basin shapes. <i>Geophysical Research Letters</i>, 51(8), e2023GL105804. <a href="https://doi.org/10.1029/2023GL105804" target="_blank">DOI</a>
+        <li><strong>Li, M.</strong>, Seybold, H., Wu, B., Chen, Y., & Kirchner, J.W. (2023). Interaction between tectonics and climate encoded in the planform geometry of stream networks on the eastern Tibetan Plateau. <i>Geophysical Research Letters</i>, 50(14), e2023GL104121. <a href="https://doi.org/10.1029/2023GL104121" target="_blank">DOI</a>
+        <li><strong>Li, M.</strong>, Wu, B., Chen, Y., & Li, D. (2022). Quantification of river network types based on hierarchical structures. <i>CATENA</i>, 211, 105986. <a href="https://doi.org/10.1016/j.catena.2021.105986" target="_blank">DOI</a>
+        <li>Chen, Y., Wu, B., Xiong, Z., Zan, J., Zhang, B., Zhang, R., Xue, Y., <strong>Li, M.</strong>, & Li, B. (2021). Evolution of eastern Tibetan river systems is driven by the indentation of India. <i>Communications Earth & Environment</i>, 2(1), 256. <a href="https://doi.org/10.1038/s43247-021-00330-4" target="_blank">DOI</a>
+        <li>Zhang, B., Wu, B., Zhang, R., Ren, S., & <strong>Li, M.</strong>. (2021). 3D numerical modelling of asynchronous propagation characteristics of flood and sediment peaks in Three Gorges Reservoir. <i>Journal of Hydrology</i>, 593, 125896. <a href="https://doi.org/10.1016/j.jhydrol.2020.125896" target="_blank">DOI</a>
+        <li>Qin, C., Wu, B., Wang, Y., Fu, X., Xue, Y., Li, D., <strong>Li, M.</strong>, & Zhang, Y. (2020). Dynamic variability of at-a-station hydraulic-geometry for mountain rivers in the southeast Qinghai-Tibet Plateau: The cases of Yalong River and upper Jinsha River. <i>Catena</i>, 194, 104723. <a href="https://doi.org/10.1016/j.catena.2020.104723" target="_blank">DOI</a>
+      </ol>
     </div>
   </div>
 
